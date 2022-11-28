@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by First_Task.rc
+// Used by Project_1.rc
 
 // Next default values for new objects
 // 

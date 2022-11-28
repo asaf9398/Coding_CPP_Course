@@ -1,6 +1,5 @@
-
-#pragma once
-
+#ifndef PROJECT1_STATUS_H
+#define PROJECT1_STATUS_H
 #define _CRT_SECURE_NO_WARNINGS
 #include "Date.h"
 #include <iostream>
@@ -9,59 +8,64 @@
 
 using namespace std;
 //enum statusType{TEXT,IMG,VIDEO};
-
+const int defStatusSize = 150;
 class Status
 {
-	//statusType type;
-	//date
-	//time
-	//data
-	char* data;
-	const int defStatusSize = 1;
-	int statusSize;
-	char* statusTime;
+    //statusType type;
+    //date
+    //time
+    //data
+    char* data;
+
+    int statusSize;
+    char* statusTime;
 
 public:
 
-	Status()
-	{
-		data = new char[defStatusSize];
-		statusSize = defStatusSize-1;
-		data[0] = '\0';
-		statusTime = createTime();
-	}
+    Status()
+    {
+        data = new char[defStatusSize];
+        statusSize = defStatusSize-1;
+        data[0] = '\0';
+        statusTime = createTime();
+    }
 
 
-	Status(char * data)
-	{
-		statusSize = strlen(data);
-		data = new char[statusSize+1];
-		strcpy(this->data, data);
-		this->data[statusSize] = '\0';
-		statusTime = createTime();
-	}
-	
-	char * getStatusData()
-	{
-		return this->data;
-	}
+    Status(const char * data)
+    {
+        statusSize = strlen(data);
+        this->data = new char[statusSize+1];
+        strcpy(this->data, data);
+        this->data[statusSize] = '\0';
+        statusTime = createTime();
+    }
 
-	char* getStatusTime()
-	{
-		return this->statusTime;
-	}
-	Status* getStatus()
-	{
-		return this;
-	}
+    char * getStatusData()
+    {
+        return this->data;
+    }
 
-	void printStatus()
-	{
-		cout << this->data << "Date and Time: " << this->statusTime << endl;
-	}
+    char* getStatusTime()
+    {
+        return this->statusTime;
+    }
+    Status* getStatus()
+    {
+        return this;
+    }
 
+    void printStatus()
+    {
+        cout << this->data << " Date and Time: " << this->statusTime << endl;
+    }
+
+    ~Status()
+    {
+        delete [] data;
+    }
 
 private:
-	char* createTime();
+    char* createTime();
 };
 
+#endif //PROJECT1_STATUS_H

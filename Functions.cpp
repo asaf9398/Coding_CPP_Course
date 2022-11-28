@@ -1,24 +1,42 @@
-#include "Functions.h"
-using namespace std;
-char* getString()
-{
-	char array[MAX_SIZE];
-	
-	char ch;
-	cin >> ch;
-	int index = 0;
-	while (ch!=(int)'\n')
-	{
-		array[index] = ch;
-		cin >> ch;
-		index++;
-	}
-	array[index] = '\0';
-	cin.getline(array,MAX_SIZE);
 
-	return array;
-}
-void freeString(char* array)
+#include "Functions.h"
+
+User** userArrMyRealloc(User** arr, int currSize, int newSize)
 {
-	delete[]array;
+    User** newArr = new User * [newSize];
+
+    for (int i = 0; i < currSize; i++)
+    {
+        newArr[i] = arr[i];
+    }
+
+    delete[] arr;
+    return newArr;
+}
+
+Status** statusArrMyRealloc(Status** arr, int currSize, int newSize)
+{
+    Status** newArr = new Status * [newSize];
+
+    for (int i = 0; i < currSize; i++)
+    {
+        newArr[i] = arr[i];
+    }
+
+    delete[] arr;
+    return newArr;
+}
+
+
+FanPage** fanPagesArrmyRealloc(FanPage** arr, int currSize, int newSize)
+{
+    FanPage** newArr = new FanPage * [newSize];
+
+    for (int i = 0; i < currSize; i++)
+    {
+        newArr[i] = arr[i];
+    }
+
+    delete[] arr;
+    return newArr;
 }
