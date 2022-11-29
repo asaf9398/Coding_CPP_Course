@@ -1,6 +1,4 @@
-//
-// Created by עידו הירשמן on 25/11/2022.
-//
+
 
 #include "Status.h"
 
