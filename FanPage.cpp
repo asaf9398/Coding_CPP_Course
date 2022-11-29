@@ -1,6 +1,3 @@
-//
-// Created by עידו הירשמן on 23/11/2022.
-//
 
 #include "FanPage.h"
 #include "User.h"
