@@ -95,6 +95,10 @@ public:
         }
         if (statusArr != nullptr)
         {
+            for(int i=0;i<numOfStatus;i++)
+            {
+                delete statusArr[i];
+            }
             delete[]statusArr;
         }      
     }
